@@ -227,7 +227,7 @@ export default function AlertTile({
             </div>
 
             {/* Modal Footer - Action Buttons */}
-            <div className="flex gap-3 p-6 border-t border-gray-200 bg-gray-50">
+            <div className="flex gap-3 p-6  bg-white-50">
               <button
                 onClick={handleReject}
                 className="flex-1 px-6 py-3 border border-red-500 opacity-85 text-red-600 font-semibold rounded-lg hover:bg-red-50 transition-colors"

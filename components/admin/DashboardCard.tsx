@@ -7,7 +7,6 @@ interface DashboardCardProps {
   icon: LucideIcon;
   href: string;
   color: string;
-  count?: number;
 }
 
 export default function DashboardCard({
@@ -16,7 +15,6 @@ export default function DashboardCard({
   icon: Icon,
   href,
   color,
-  count,
 }: DashboardCardProps) {
   return (
     <Link
@@ -27,9 +25,6 @@ export default function DashboardCard({
         <div className={`p-3 rounded-lg ${color}`}>
           <Icon size={24} className="text-white" />
         </div>
-        {count !== undefined && (
-          <span className="text-2xl font-bold text-gray-900">{count}</span>
-        )}
       </div>
       <h3 className="text-lg font-semibold text-gray-900 mb-2">{title}</h3>
       <p className="text-sm text-gray-600">{description}</p>

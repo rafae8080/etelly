@@ -59,19 +59,19 @@ export default function ReportsPage() {
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <div className="bg-white p-6 rounded-xl border border-gray-200">
+        <div className="bg-white p-6 rounded-xl ">
           <p className="text-sm text-gray-600 mb-1">Total Reports</p>
           <p className="text-3xl font-bold text-gray-900">{alerts.length}</p>
           <p className="text-sm text-blue-600 mt-2">↑ 2 new today</p>
         </div>
 
-        <div className="bg-white p-6 rounded-xl border border-gray-200">
+        <div className="bg-white p-6 rounded-xl ">
           <p className="text-sm text-gray-600 mb-1">High Priority</p>
           <p className="text-3xl font-bold text-red-600">
             {alerts.filter((a) => a.severity === "high").length}
           </p>
         </div>
-        <div className="bg-white p-6 rounded-xl border border-gray-200">
+        <div className="bg-white p-6 rounded-xl ">
           <p className="text-sm text-gray-600 mb-1">Sea Wall Reports</p>
           <p className="text-3xl font-bold text-orange-600">
             {alerts.filter((a) => a.type === "Seawall break").length}

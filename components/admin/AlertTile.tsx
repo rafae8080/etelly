@@ -52,7 +52,7 @@ export default function AlertTile({
   return (
     <>
       {/* Alert Tile - Clickable */}
-      <div className="bg-white p-4 rounded-xl border-l-4 border-gray-400 hover:border-red-500 cursor-pointer hover:shadow-md transition-all">
+      <div className="bg-white p-4 rounded-xl border-l-3 border-gray-400 hover:border-red-500 cursor-pointer hover:shadow-md transition-all">
         <div className="flex items-start gap-4">
           {/* Icon */}
           <div className={`p-2 rounded-lg ${iconColor}`}>

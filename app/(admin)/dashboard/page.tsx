@@ -2,7 +2,7 @@ import DashboardCard from "@/components/admin/DashboardCard";
 import {
   Bell,
   Map,
-  Droplets,
+  Waves,
   MapPin,
   Package,
   Users,
@@ -17,7 +17,6 @@ export default function DashboardPage() {
       icon: Bell,
       href: "/alerts",
       color: "bg-red-500",
-      count: 3,
     },
     {
       title: "Reports",
@@ -25,7 +24,6 @@ export default function DashboardPage() {
       icon: Volume2,
       href: "/reports",
       color: "bg-red-500",
-      count: 3,
     },
     {
       title: "Hazard Mapping",
@@ -33,15 +31,13 @@ export default function DashboardPage() {
       icon: Map,
       href: "/hazard-map",
       color: "bg-orange-500",
-      count: 7,
     },
     {
       title: "Flood Prediction",
       description: "View areas likely to be flooded",
-      icon: Droplets,
+      icon: Waves,
       href: "/flood-prediction",
       color: "bg-blue-500",
-      count: 2,
     },
     {
       title: "Evacuation Centers",
@@ -49,7 +45,6 @@ export default function DashboardPage() {
       icon: MapPin,
       href: "/evacuation",
       color: "bg-green-500",
-      count: 5,
     },
     {
       title: "Resources",
@@ -57,7 +52,6 @@ export default function DashboardPage() {
       icon: Package,
       href: "/resources",
       color: "bg-purple-500",
-      count: 24,
     },
     {
       title: "Community Requests",
@@ -65,7 +59,6 @@ export default function DashboardPage() {
       icon: Users,
       href: "/community-requests",
       color: "bg-indigo-500",
-      count: 12,
     },
   ];
 
@@ -82,22 +75,20 @@ export default function DashboardPage() {
 
       {/* Stats Overview */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-        <div className="bg-white p-6 rounded-xl border border-gray-200">
+        <div className="bg-white p-6 rounded-xl ">
           <p className="text-sm text-gray-600 mb-1">Total Active Alerts</p>
           <p className="text-3xl font-bold text-gray-900">3</p>
-          <p className="text-sm text-green-600 mt-2">↑ 2 new today</p>
+          <p className="text-sm text-blue-600 mt-2">↑ 2 new today</p>
         </div>
 
-        <div className="bg-white p-6 rounded-xl border border-gray-200">
+        <div className="bg-white p-6 rounded-xl ">
           <p className="text-sm text-gray-600 mb-1">Available Resources</p>
           <p className="text-3xl font-bold text-gray-900">24</p>
-          <p className="text-sm text-blue-600 mt-2">→ 5 in use</p>
         </div>
 
-        <div className="bg-white p-6 rounded-xl border border-gray-200">
+        <div className="bg-white p-6 rounded-xl ">
           <p className="text-sm text-gray-600 mb-1">Pending Requests</p>
           <p className="text-3xl font-bold text-gray-900">12</p>
-          <p className="text-sm text-orange-600 mt-2">⚠ 3 urgent</p>
         </div>
       </div>
 
