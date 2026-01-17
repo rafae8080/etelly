@@ -1,13 +1,29 @@
 import DashboardCard from "@/components/admin/DashboardCard";
-import { Bell, Map, Droplets, MapPin, Package, Users } from "lucide-react";
+import {
+  Bell,
+  Map,
+  Droplets,
+  MapPin,
+  Package,
+  Users,
+  Volume2,
+} from "lucide-react";
 
 export default function DashboardPage() {
   const modules = [
     {
-      title: "Monitoring & Alerts",
+      title: "Alerts",
       description: "Manage disaster alerts and view reports",
       icon: Bell,
       href: "/alerts",
+      color: "bg-red-500",
+      count: 3,
+    },
+    {
+      title: "Reports",
+      description: "Manage disaster alerts and view reports",
+      icon: Volume2,
+      href: "/reports",
       color: "bg-red-500",
       count: 3,
     },

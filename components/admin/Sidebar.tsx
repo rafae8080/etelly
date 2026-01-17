@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
+  Volume2,
   Bell,
   Map,
   Droplets,
@@ -19,6 +20,7 @@ import { useState } from "react";
 const menuItems = [
   { icon: LayoutDashboard, label: "Dashboard", href: "/dashboard" },
   { icon: Bell, label: "Alerts", href: "/alerts" },
+  { icon: Volume2, label: "Reports", href: "/reports" },
   { icon: Map, label: "Hazard Map", href: "/hazard-map" },
   { icon: Droplets, label: "Flood Prediction", href: "/flood-prediction" },
   { icon: MapPin, label: "Evacuation Centers", href: "/evacuation" },
@@ -59,7 +61,7 @@ export default function Sidebar() {
         <div className="h-full px-3 py-4 overflow-y-auto">
           {/* Logo */}
           <div className="mb-8 px-3">
-            <h1 className="text-2xl font-bold text-blue-600">E-Telly</h1>
+            <h1 className="text-2xl font-bold text-red-600">E-Telly</h1>
             <p className="text-xs text-gray-500 mt-1">Admin Dashboard</p>
           </div>
 
@@ -77,7 +79,7 @@ export default function Sidebar() {
                   className={cn(
                     "flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors",
                     isActive
-                      ? "bg-blue-50 text-blue-600 font-medium"
+                      ? "bg-blue-50 text-red-600 font-medium"
                       : "text-gray-700 hover:bg-gray-50"
                   )}
                 >
