@@ -60,6 +60,13 @@ export default function DashboardPage() {
       href: "/community-requests",
       color: "bg-indigo-500",
     },
+    {
+      title: "Safety Tips",
+      description: "Manage safety tips and guidelines",
+      icon: Users,
+      href: "/safety-tips",
+      color: "bg-indigo-500",
+    },
   ];
 
   return (

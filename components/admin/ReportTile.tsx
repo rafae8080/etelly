@@ -53,7 +53,7 @@ export default function AlertTile({
     if (type === "Flood") return "text-red-600 bg-red-50";
     if (type === "Fire") return "text-red-600 bg-red-50";
     if (type === "Earthquake") return "text-orange-600 bg-orange-50";
-    return "text-blue-600 bg-blue-50"; // Default color
+    return "text-blue-600 bg-blue-50";
   };
 
   const Icon = getReportIcon();
@@ -100,8 +100,8 @@ export default function AlertTile({
                   severity === "high"
                     ? "bg-red-100 text-red-700"
                     : severity === "medium"
-                    ? "bg-orange-100 text-orange-700"
-                    : "bg-blue-100 text-blue-700"
+                      ? "bg-orange-100 text-orange-700"
+                      : "bg-blue-100 text-blue-700"
                 }`}
               >
                 {severity.toUpperCase()}
@@ -171,8 +171,8 @@ export default function AlertTile({
                     severity === "high"
                       ? "bg-red-100 text-red-700"
                       : severity === "medium"
-                      ? "bg-orange-100 text-orange-700"
-                      : "bg-blue-100 text-blue-700"
+                        ? "bg-orange-100 text-orange-700"
+                        : "bg-blue-100 text-blue-700"
                   }`}
                 >
                   {severity.toUpperCase()}
