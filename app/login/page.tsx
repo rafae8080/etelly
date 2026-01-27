@@ -14,6 +14,7 @@ export default function LoginPage() {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
+  //todo: ilipat sa manage accounts
   // Register form state
   const [registerName, setRegisterName] = useState("");
   const [registerEmail, setRegisterEmail] = useState("");
@@ -48,7 +49,7 @@ export default function LoginPage() {
       setIsLoading(false);
     }
   };
-
+  //todo: ilipat sa account management
   // Handle Register
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -128,9 +129,10 @@ export default function LoginPage() {
       {/* Container */}
       <div
         className={`relative bg-white rounded-2xl shadow-2xl overflow-hidden transition-all duration-700 ${
-          isSignUp ? "w-3xl min-h-140.5" : "w-3xl min-h-140.5"
+          isSignUp ? "w-3xl min-h-120" : "w-3xl min-h-120"
         } max-w-[95%]`}
       >
+        //todo: ilipat sa managemnent system
         {/* Sign Up Form */}
         <div
           className={`absolute top-0 h-full w-1/2 transition-all duration-700 ease-in-out ${
@@ -222,7 +224,6 @@ export default function LoginPage() {
             </p>
           </form>
         </div>
-
         {/* Sign In Form */}
         <div
           className={`absolute top-0 left-0 h-full w-1/2 transition-all duration-700 ease-in-out ${
@@ -268,7 +269,7 @@ export default function LoginPage() {
               {isLoading ? "Signing In..." : "Sign In"}
             </button>
 
-            <p className="text-sm mt-5">
+            {/* <p className="text-sm mt-5">
               Don't have an account?{" "}
               <button
                 type="button"
@@ -278,10 +279,9 @@ export default function LoginPage() {
               >
                 Sign Up
               </button>
-            </p>
+            </p> */}
           </form>
         </div>
-
         {/* Overlay Container */}
         <div
           className={`absolute top-0 left-1/2 w-1/2 h-full overflow-hidden transition-transform duration-700 ease-in-out z-100 ${
@@ -293,7 +293,7 @@ export default function LoginPage() {
               isSignUp ? "translate-x-1/2" : "translate-x-0"
             }`}
           >
-            {/* Left Overlay Panel */}
+            {/* Left Overlay Panel
             <div
               className={`absolute flex items-center justify-center flex-col px-10 text-center top-0 h-full w-1/2 transition-transform duration-700 ease-in-out ${
                 isSignUp ? "translate-x-0" : "-translate-x-[20%]"
@@ -310,7 +310,7 @@ export default function LoginPage() {
               >
                 Sign In
               </button>
-            </div>
+            </div> */}
 
             {/* Right Overlay Panel */}
             <div
@@ -318,17 +318,22 @@ export default function LoginPage() {
                 isSignUp ? "translate-x-[20%]" : "translate-x-0"
               }`}
             >
-              <h1 className="font-bold text-3xl mb-2">Hello, Admin!</h1>
+              <img
+                src="/images/logo.png"
+                alt="admin welcome"
+                className="w-32 h-40mb-4"
+              />
+              <h1 className="font-bold text-3xl mb-2">E-TELLY</h1>
               <p className="text-sm leading-5 tracking-wide my-5">
-                Enter your personal details and start managing E-Telly
+                Disaster preparedness and community resource sharing{" "}
               </p>
-              <button
+              {/* <button
                 type="button"
                 onClick={() => setIsSignUp(true)}
                 className="rounded-full border-2 border-white bg-transparent text-white text-xs font-bold px-11 py-3 uppercase tracking-wider transition-transform active:scale-95 hover:bg-white hover:text-gray-800"
               >
                 Sign Up
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

@@ -13,6 +13,9 @@ import {
   Users,
   Menu,
   X,
+  Dam,
+  InfoIcon,
+  HandHelpingIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
@@ -23,9 +26,16 @@ const menuItems = [
   { icon: Volume2, label: "Reports", href: "/reports" },
   { icon: Map, label: "Hazard Map", href: "/hazard-map" },
   { icon: Droplets, label: "Flood Prediction", href: "/flood-prediction" },
+  { icon: Dam, label: "Dam Monitoring", href: "/dam-monitoring" },
   { icon: MapPin, label: "Evacuation Centers", href: "/evacuation" },
   { icon: Package, label: "Resources", href: "/resources" },
-  { icon: Users, label: "Community Requests", href: "/community-requests" },
+  {
+    icon: HandHelpingIcon,
+    label: "Community Requests",
+    href: "/community-requests",
+  },
+  { icon: InfoIcon, label: "Safety Tips", href: "/safety-tips" },
+  { icon: Users, label: "Manage Users", href: "/manage-users" },
 ];
 
 export default function Sidebar() {
@@ -55,7 +65,7 @@ export default function Sidebar() {
         className={cn(
           "fixed top-0 left-0 z-40 h-screen transition-transform lg:translate-x-0",
           "w-64 bg-white border-r border-gray-200",
-          isOpen ? "translate-x-0" : "-translate-x-full"
+          isOpen ? "translate-x-0" : "-translate-x-full",
         )}
       >
         <div className="h-full px-3 py-4 overflow-y-auto">
@@ -77,13 +87,13 @@ export default function Sidebar() {
                   href={item.href}
                   onClick={() => setIsOpen(false)}
                   className={cn(
-                    "flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors",
+                    "flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors text-sm",
                     isActive
                       ? "bg-blue-50 text-red-600 font-medium"
-                      : "text-gray-700 hover:bg-gray-50"
+                      : "text-gray-700 hover:bg-gray-50",
                   )}
                 >
-                  <Icon size={20} />
+                  <Icon size={18} />
                   <span>{item.label}</span>
                 </Link>
               );

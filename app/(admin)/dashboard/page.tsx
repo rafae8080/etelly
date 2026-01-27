@@ -1,4 +1,5 @@
 import DashboardCard from "@/components/admin/DashboardCard";
+import { info } from "console";
 import {
   Bell,
   Map,
@@ -7,6 +8,13 @@ import {
   Package,
   Users,
   Volume2,
+  LayoutDashboard,
+  Droplets,
+  Menu,
+  X,
+  Dam,
+  InfoIcon,
+  HandHelpingIcon,
 } from "lucide-react";
 
 export default function DashboardPage() {
@@ -16,14 +24,14 @@ export default function DashboardPage() {
       description: "Manage disaster alerts and view reports",
       icon: Bell,
       href: "/alerts",
-      color: "bg-red-500",
+      color: "bg-red-600",
     },
     {
       title: "Reports",
       description: "Manage disaster alerts and view reports",
       icon: Volume2,
       href: "/reports",
-      color: "bg-red-500",
+      color: "bg-blue-800",
     },
     {
       title: "Hazard Mapping",
@@ -40,6 +48,13 @@ export default function DashboardPage() {
       color: "bg-blue-500",
     },
     {
+      title: "Dam Monitoring",
+      description: "Monitor dam conditions and safety",
+      icon: Dam,
+      href: "/dam-monitoring",
+      color: "bg-blue-300",
+    },
+    {
       title: "Evacuation Centers",
       description: "Manage evacuation center locations",
       icon: MapPin,
@@ -51,21 +66,28 @@ export default function DashboardPage() {
       description: "Track resource inventory and updates",
       icon: Package,
       href: "/resources",
-      color: "bg-purple-500",
+      color: "bg-yellow-500",
     },
     {
       title: "Community Requests",
       description: "Manage community resource requests",
-      icon: Users,
+      icon: HandHelpingIcon,
       href: "/community-requests",
-      color: "bg-indigo-500",
+      color: "bg-purple-600",
     },
     {
       title: "Safety Tips",
       description: "Manage safety tips and guidelines",
-      icon: Users,
+      icon: InfoIcon,
       href: "/safety-tips",
-      color: "bg-indigo-500",
+      color: "bg-indigo-700",
+    },
+    {
+      title: "Manage Users",
+      description: "Manage user accounts and permissions",
+      icon: Users,
+      href: "/manage-users",
+      color: "bg-gray-600",
     },
   ];
 
@@ -89,13 +111,13 @@ export default function DashboardPage() {
         </div>
 
         <div className="bg-white p-6 rounded-xl ">
-          <p className="text-sm text-gray-600 mb-1">Available Resources</p>
+          <p className="text-sm text-gray-600 mb-1">Pending Requests</p>
           <p className="text-3xl font-bold text-gray-900">24</p>
         </div>
 
         <div className="bg-white p-6 rounded-xl ">
-          <p className="text-sm text-gray-600 mb-1">Pending Requests</p>
-          <p className="text-3xl font-bold text-gray-900">12</p>
+          <p className="text-sm text-gray-600 mb-1">Dam Level</p>
+          <p className="text-3xl font-bold text-gray-900">68.67 M</p>
         </div>
       </div>
 

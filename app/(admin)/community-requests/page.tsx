@@ -1,14 +1,51 @@
-export default function CommunityRequestsPage() {
+"use client";
+
+import { useState } from "react";
+import RequestCard from "@/components/admin/RequestCard";
+import RequestModal from "@/components/admin/RequestModal";
+
+const requests = [
+  {
+    id: 1,
+    name: "Juan Dela Cruz",
+    requestType: "Evacuation Assistance",
+    message: "May baha na po sa bahay namin",
+    status: "pending",
+  },
+  {
+    id: 2,
+    name: "Maria Santos",
+    requestType: "Relief Goods",
+    message: "Kulang na po pagkain namin",
+    status: "pending",
+  },
+];
+
+export default function CommunityRequestPage() {
+  const [selectedRequest, setSelectedRequest] = useState<any>(null);
+
   return (
-    <div>
-      <h1 className="text-3xl font-bold text-gray-900 mb-4">
-        Community Requests
+    <div className="min-h-screen bg-red-100 p-6">
+      <h1 className="text-3xl font-bold text-red-800 mb-6">
+        Community Requests (Admin)
       </h1>
-      <div className="bg-white p-6 rounded-xl border border-gray-200">
-        <p className="text-gray-600">
-          Community requests module coming soon...
-        </p>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {requests.map((req) => (
+          <RequestCard
+            key={req.id}
+            request={req}
+            onApprove={() => setSelectedRequest(req)}
+          />
+        ))}
       </div>
+
+      {selectedRequest && (
+        <RequestModal
+          request={selectedRequest}
+          onClose={() => setSelectedRequest(null)}
+        />
+      )}
     </div>
   );
 }
