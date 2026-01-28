@@ -1,8 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import RequestCard from "@/components/admin/RequestCard";
-import RequestModal from "@/components/admin/RequestModal";
 
 const requests = [
   {
@@ -29,23 +27,6 @@ export default function CommunityRequestPage() {
       <h1 className="text-3xl font-bold text-red-800 mb-6">
         Community Requests (Admin)
       </h1>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {requests.map((req) => (
-          <RequestCard
-            key={req.id}
-            request={req}
-            onApprove={() => setSelectedRequest(req)}
-          />
-        ))}
-      </div>
-
-      {selectedRequest && (
-        <RequestModal
-          request={selectedRequest}
-          onClose={() => setSelectedRequest(null)}
-        />
-      )}
     </div>
   );
 }

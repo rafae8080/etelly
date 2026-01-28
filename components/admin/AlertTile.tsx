@@ -74,8 +74,8 @@ export default function AlertTile({
                   severity === "high"
                     ? "bg-red-100 text-red-700"
                     : severity === "medium"
-                    ? "bg-orange-100 text-orange-700"
-                    : "bg-blue-100 text-blue-700"
+                      ? "bg-orange-100 text-orange-700"
+                      : "bg-blue-100 text-blue-700"
                 }`}
               >
                 {severity.toUpperCase()}

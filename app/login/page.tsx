@@ -6,21 +6,12 @@ import { supabase } from "@/lib/supabase";
 
 export default function LoginPage() {
   const router = useRouter();
-  const [isSignUp, setIsSignUp] = useState(false);
   const [alert, setAlert] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   // Login form state
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-
-  //todo: ilipat sa manage accounts
-  // Register form state
-  const [registerName, setRegisterName] = useState("");
-  const [registerEmail, setRegisterEmail] = useState("");
-  const [registerPhone, setRegisterPhone] = useState("");
-  const [registerPassword, setRegisterPassword] = useState("");
-  const [registerConfirmPassword, setRegisterConfirmPassword] = useState("");
 
   // Handle Login
   const handleLogin = async (e: React.FormEvent) => {
@@ -49,63 +40,6 @@ export default function LoginPage() {
       setIsLoading(false);
     }
   };
-  //todo: ilipat sa account management
-  // Handle Register
-  const handleRegister = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setAlert("");
-
-    // Validation
-    if (registerPassword.length < 6) {
-      setAlert("Password must be at least 6 characters");
-      setIsLoading(false);
-      return;
-    }
-
-    if (registerPassword !== registerConfirmPassword) {
-      setAlert("Passwords do not match");
-      setIsLoading(false);
-      return;
-    }
-
-    if (registerPhone.length < 10) {
-      setAlert("Please enter a valid phone number");
-      setIsLoading(false);
-      return;
-    }
-
-    try {
-      const { data, error } = await supabase.auth.signUp({
-        email: registerEmail,
-        password: registerPassword,
-        options: {
-          data: {
-            full_name: registerName,
-            role: "barangay_official",
-            phone_number: registerPhone,
-          },
-        },
-      });
-
-      if (error) {
-        setAlert(error.message);
-      } else if (data.user) {
-        setAlert("Registration successful! Please login.");
-        setIsSignUp(false);
-        setRegisterName("");
-        setRegisterEmail("");
-        setRegisterPhone("");
-        setRegisterPassword("");
-        setRegisterConfirmPassword("");
-      }
-    } catch (error) {
-      setAlert("An error occurred during registration");
-      console.error(error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-gray-800 via-gray-900 to-black relative py-8">
@@ -127,114 +61,12 @@ export default function LoginPage() {
       )}
 
       {/* Container */}
-      <div
-        className={`relative bg-white rounded-2xl shadow-2xl overflow-hidden transition-all duration-700 ${
-          isSignUp ? "w-3xl min-h-120" : "w-3xl min-h-120"
-        } max-w-[95%]`}
-      >
-        //todo: ilipat sa managemnent system
-        {/* Sign Up Form */}
-        <div
-          className={`absolute top-0 h-full w-1/2 transition-all duration-700 ease-in-out ${
-            isSignUp
-              ? "translate-x-full opacity-100 z-10"
-              : "translate-x-0 opacity-0 z-0"
-          }`}
-        >
-          <form
-            onSubmit={handleRegister}
-            className="bg-white flex flex-col items-center justify-center h-full px-12 text-center py-8 overflow-y-auto"
-          >
-            <h1 className="font-bold text-3xl mb-2">Create Account</h1>
-            <span className="text-xs text-gray-600 mb-4">
-              Fill in your details to register
-            </span>
-
-            <input
-              type="text"
-              placeholder="Full Name"
-              value={registerName}
-              onChange={(e) => setRegisterName(e.target.value)}
-              className="bg-gray-100 border-none px-4 py-3 my-2 w-full rounded"
-              required
-              disabled={isLoading}
-            />
-
-            <input
-              type="email"
-              placeholder="Email"
-              value={registerEmail}
-              onChange={(e) => setRegisterEmail(e.target.value)}
-              className="bg-gray-100 border-none px-4 py-3 my-2 w-full rounded"
-              required
-              disabled={isLoading}
-            />
-
-            <input
-              type="tel"
-              placeholder="Phone Number (09XXXXXXXXX)"
-              value={registerPhone}
-              onChange={(e) => setRegisterPhone(e.target.value)}
-              className="bg-gray-100 border-none px-4 py-3 my-2 w-full rounded"
-              required
-              pattern="[0-9]{11}"
-              disabled={isLoading}
-            />
-
-            <input
-              type="password"
-              placeholder="Password (min 6 characters)"
-              value={registerPassword}
-              onChange={(e) => setRegisterPassword(e.target.value)}
-              className="bg-gray-100 border-none px-4 py-3 my-2 w-full rounded"
-              required
-              minLength={6}
-              disabled={isLoading}
-            />
-
-            <input
-              type="password"
-              placeholder="Confirm Password"
-              value={registerConfirmPassword}
-              onChange={(e) => setRegisterConfirmPassword(e.target.value)}
-              className="bg-gray-100 border-none px-4 py-3 my-2 w-full rounded"
-              required
-              minLength={6}
-              disabled={isLoading}
-            />
-
-            <button
-              type="submit"
-              disabled={isLoading}
-              className="rounded-full border border-red-700 bg-red-600 text-white text-xs font-bold px-11 py-3 uppercase tracking-wider mt-4 transition-transform active:scale-95 hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {isLoading ? "Creating Account..." : "Sign Up"}
-            </button>
-
-            <p className="text-sm mt-5">
-              Already have an account?{" "}
-              <button
-                type="button"
-                onClick={() => setIsSignUp(false)}
-                className="text-red-600 font-semibold hover:underline bg-transparent border-none cursor-pointer"
-                disabled={isLoading}
-              >
-                Login
-              </button>
-            </p>
-          </form>
-        </div>
+      <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden w-full max-w-4xl flex h-120">
         {/* Sign In Form */}
-        <div
-          className={`absolute top-0 left-0 h-full w-1/2 transition-all duration-700 ease-in-out ${
-            isSignUp
-              ? "-translate-x-full opacity-0 pointer-events-none"
-              : "translate-x-0 opacity-100 z-20"
-          }`}
-        >
+        <div className="w-1/2 p-12 flex flex-col justify-center">
           <form
             onSubmit={handleLogin}
-            className="bg-white flex flex-col items-center justify-center h-full px-12 text-center"
+            className="flex flex-col items-center justify-center text-center"
           >
             <h1 className="font-bold text-3xl mb-2">Login</h1>
             <span className="text-xs text-gray-600 mb-6">
@@ -268,74 +100,20 @@ export default function LoginPage() {
             >
               {isLoading ? "Signing In..." : "Sign In"}
             </button>
-
-            {/* <p className="text-sm mt-5">
-              Don't have an account?{" "}
-              <button
-                type="button"
-                onClick={() => setIsSignUp(true)}
-                className="text-red-600 font-semibold hover:underline bg-transparent border-none cursor-pointer"
-                disabled={isLoading}
-              >
-                Sign Up
-              </button>
-            </p> */}
           </form>
         </div>
-        {/* Overlay Container */}
-        <div
-          className={`absolute top-0 left-1/2 w-1/2 h-full overflow-hidden transition-transform duration-700 ease-in-out z-100 ${
-            isSignUp ? "-translate-x-full" : "translate-x-0"
-          }`}
-        >
-          <div
-            className={`bg-linear-to-r from-red-600 via-red-700 to-red-800 text-white relative -left-full h-full w-[200%] transition-transform duration-700 ease-in-out ${
-              isSignUp ? "translate-x-1/2" : "translate-x-0"
-            }`}
-          >
-            {/* Left Overlay Panel
-            <div
-              className={`absolute flex items-center justify-center flex-col px-10 text-center top-0 h-full w-1/2 transition-transform duration-700 ease-in-out ${
-                isSignUp ? "translate-x-0" : "-translate-x-[20%]"
-              }`}
-            >
-              <h1 className="font-bold text-3xl mb-2">Welcome Back!</h1>
-              <p className="text-sm leading-5 tracking-wide my-5">
-                To keep connected with us please login with your personal info
-              </p>
-              <button
-                type="button"
-                onClick={() => setIsSignUp(false)}
-                className="rounded-full border-2 border-white bg-transparent text-white text-xs font-bold px-11 py-3 uppercase tracking-wider transition-transform active:scale-95 hover:bg-white hover:text-gray-800"
-              >
-                Sign In
-              </button>
-            </div> */}
 
-            {/* Right Overlay Panel */}
-            <div
-              className={`absolute flex items-center justify-center flex-col px-10 text-center top-0 h-full w-1/2 right-0 transition-transform duration-700 ease-in-out ${
-                isSignUp ? "translate-x-[20%]" : "translate-x-0"
-              }`}
-            >
-              <img
-                src="/images/logo.png"
-                alt="admin welcome"
-                className="w-32 h-40mb-4"
-              />
-              <h1 className="font-bold text-3xl mb-2">E-TELLY</h1>
-              <p className="text-sm leading-5 tracking-wide my-5">
-                Disaster preparedness and community resource sharing{" "}
-              </p>
-              {/* <button
-                type="button"
-                onClick={() => setIsSignUp(true)}
-                className="rounded-full border-2 border-white bg-transparent text-white text-xs font-bold px-11 py-3 uppercase tracking-wider transition-transform active:scale-95 hover:bg-white hover:text-gray-800"
-              >
-                Sign Up
-              </button> */}
-            </div>
-          </div>
+        {/* Right Panel */}
+        <div className="w-1/2 bg-linear-to-r from-red-600 via-red-700 to-red-800 text-white flex items-center justify-center flex-col p-10">
+          <img
+            src="/images/logo.png"
+            alt="E-Telly Logo"
+            className="w-32 h-40 mb-4"
+          />
+          <h1 className="font-bold text-3xl mb-2">E-TELLY</h1>
+          <p className="text-sm leading-5 tracking-wide text-center">
+            Disaster preparedness and community resource sharing
+          </p>
         </div>
       </div>
     </div>
