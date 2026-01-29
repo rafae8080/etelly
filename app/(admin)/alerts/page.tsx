@@ -64,12 +64,12 @@ export default function AlertsPage() {
   ];
 
   return (
-    <div className="p-8">
+    <div>
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Alerts</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-6">Alerts</h1>
         </div>
-        <button className="px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-md hover:bg-red-700 transition-colors flex items-center gap-2">
+        <button className="px-6 py-2 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors flex items-center justify-center gap-2 whitespace-nowrap">
           <span>+</span>
           <span>Create Alert</span>
         </button>

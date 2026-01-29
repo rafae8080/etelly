@@ -59,12 +59,9 @@ export default function EvacuationCentersPage() {
     <div>
       <div className="flex items-center justify-between">
         <div className="flex-1 max-w-md">
-          <h1 className="text-3xl font-bold text-gray-900">
+          <h1 className="text-3xl font-bold text-gray-900 mb-8">
             Evacuation Centers
           </h1>
-          <p className="text-gray-600 mt-2 mb-8">
-            Monitor occupancy and status.
-          </p>
         </div>
         <div className="mb-8">
           <div className="flex items-center gap-4">

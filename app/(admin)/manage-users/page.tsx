@@ -223,10 +223,9 @@ export default function ManageUserPage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Manage Users</h1>
-          <p className="text-gray-600 mt-2">
-            Manage user accounts and permissions
-          </p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-4">
+            Manage Users
+          </h1>
         </div>
         <button
           onClick={handleOpenCreateModal}

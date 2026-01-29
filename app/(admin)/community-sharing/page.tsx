@@ -207,7 +207,7 @@ export default function CommunityRequestsPage() {
   const currentDonationData = donationData[activeDonationTab] || [];
 
   return (
-    <div className="p-6 space-y-8">
+    <div className="space-y-8">
       {/* Header */}
       <div className="mb-6">
         <h1 className="text-3xl font-bold text-gray-900">Community Sharing</h1>

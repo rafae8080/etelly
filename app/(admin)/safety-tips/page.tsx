@@ -55,10 +55,7 @@ export default function SafetyTipPage() {
     <div>
       <div className="flex items-center justify-between">
         <div className="flex-1 max-w-md">
-          <h1 className="text-3xl font-bold text-gray-900">Safety Tips</h1>
-          <p className="text-gray-600 mt-2 mb-8">
-            Essential safety guidelines for emergencies
-          </p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-6">Safety Tips</h1>
         </div>
         <div className="mb-8">
           <div className="flex items-center gap-4">
