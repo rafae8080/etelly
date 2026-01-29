@@ -17,7 +17,7 @@ interface AlertTileProps {
 function AlertTile({ title, description, timestamp }: AlertTileProps) {
   return (
     <div
-      className={`bg-white p-4 rounded-lg border-l-4 hover:border-red-500 border-gray-400 hover:shadow-md transition-all `}
+      className={`bg-white p-4 rounded-xl border-l-4 hover:border-red-500 border-gray-400 hover:shadow-md transition-all `}
     >
       {/* Title */}
       <h3 className="font-semibold text-gray-900 mb-2">{title}</h3>
