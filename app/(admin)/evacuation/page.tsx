@@ -63,7 +63,6 @@ export default function EvacuationCentersPage() {
             Evacuation Centers
           </h1>
           <p className="text-gray-600 mt-2 mb-8">
-            {" "}
             Monitor occupancy and status.
           </p>
         </div>

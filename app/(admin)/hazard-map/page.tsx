@@ -5,7 +5,6 @@ export default function HazardMapPage() {
 
       {/* Map Container with Controls */}
       <div className="flex gap-4">
-        {/* Zoom Controls - Outside on the left */}
         <div className="flex flex-col gap-2">
           <button className="w-10 h-10 bg-white rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors flex items-center justify-center text-gray-700 font-semibold text-xl shadow-sm">
             +
@@ -32,7 +31,7 @@ export default function HazardMapPage() {
             className="absolute inset-0"
           />
 
-          {/* Severity Level Legend - Fixed position with elevation (floats on scroll) */}
+          {/* Severity Level Legend */}
           <div className="fixed bottom-6 right-6 bg-white rounded-lg p-4 shadow-lg z-10 w-50">
             <h3 className="text-sm font-semibold text-gray-900 mb-3">
               Severity Level

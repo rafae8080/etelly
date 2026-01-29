@@ -31,8 +31,8 @@ const menuItems = [
   { icon: Package, label: "Resources", href: "/resources" },
   {
     icon: HandHelpingIcon,
-    label: "Community Requests",
-    href: "/community-requests",
+    label: "Community Sharing",
+    href: "/community-sharing",
   },
   { icon: InfoIcon, label: "Safety Tips", href: "/safety-tips" },
   { icon: Users, label: "Manage Users", href: "/manage-users" },

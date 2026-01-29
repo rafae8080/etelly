@@ -1,6 +1,6 @@
 "use client";
 
-import { Plus, Minus, Package, Trash2, Edit2, X, Check } from "lucide-react";
+import { Plus, Package, Trash2, Edit2, X, Check } from "lucide-react";
 import { useState } from "react";
 
 export default function ResourcesPage() {
@@ -69,7 +69,7 @@ export default function ResourcesPage() {
           }
         }
         return item;
-      })
+      }),
     );
 
     setEditingItem(null);
@@ -97,7 +97,7 @@ export default function ResourcesPage() {
             placeholder="Search by item name..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
           />
         </div>
 
@@ -106,7 +106,7 @@ export default function ResourcesPage() {
           <select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-transparent bg-white "
           >
             {categories.map((category) => (
               <option key={category} value={category}>
@@ -117,7 +117,7 @@ export default function ResourcesPage() {
         </div>
 
         {/* Add New Resource Button */}
-        <button className="px-6 py-2 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600 transition-colors flex items-center justify-center gap-2 whitespace-nowrap">
+        <button className="px-6 py-2 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-500 transition-colors flex items-center justify-center gap-2 whitespace-nowrap">
           <Plus size={20} />
           Add New Resource
         </button>
@@ -151,14 +151,8 @@ export default function ResourcesPage() {
                 {/* Category */}
                 <td className="px-6 py-4">
                   <span
-                    className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
+                    className={`inline-block px-3 py-1 rounded-full  font-semibold ${
                       item.category === "Food"
-                        ? "bg-green-100 text-green-700"
-                        : item.category === "Medical"
-                        ? "bg-red-100 text-red-700"
-                        : item.category === "Clothing"
-                        ? "bg-blue-100 text-blue-700"
-                        : "bg-purple-100 text-purple-700"
                     }`}
                   >
                     {item.category}
@@ -168,7 +162,6 @@ export default function ResourcesPage() {
                 {/* Item Name */}
                 <td className="px-6 py-4">
                   <div className="flex items-center gap-3">
-                    <Package size={18} className="text-gray-400" />
                     <span className="text-gray-900 font-medium">
                       {item.itemName}
                     </span>

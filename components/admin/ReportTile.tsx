@@ -110,8 +110,8 @@ export default function AlertTile({
 
             {/* Info */}
             <div className="flex items-center gap-4 mt-2 text-xs text-gray-500">
-              <span>📍 {location}</span>
-              <span>🕐 {timestamp}</span>
+              <span> {location}</span>
+              <span> {timestamp}</span>
               {rescue && (
                 <span className="flex items-center gap-1 text-red-600 font-medium">
                   <span className="w-1.5 h-1.5 bg-red-500 rounded-full"></span>
@@ -192,7 +192,7 @@ export default function AlertTile({
                 <p className="text-sm font-medium text-gray-700 mb-2">
                   Location
                 </p>
-                <p className="text-gray-900">📍 {location}</p>
+                <p className="text-gray-900"> {location}</p>
               </div>
 
               {/* Timestamp */}
@@ -200,7 +200,7 @@ export default function AlertTile({
                 <p className="text-sm font-medium text-gray-700 mb-2">
                   Reported At
                 </p>
-                <p className="text-gray-900">🕐 {timestamp}</p>
+                <p className="text-gray-900"> {timestamp}</p>
               </div>
 
               {/* Reported By */}

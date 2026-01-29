@@ -1,5 +1,4 @@
 import DashboardCard from "@/components/admin/DashboardCard";
-import { info } from "console";
 import {
   Bell,
   Map,
@@ -69,10 +68,10 @@ export default function DashboardPage() {
       color: "bg-yellow-500",
     },
     {
-      title: "Community Requests",
-      description: "Manage community resource requests",
+      title: "Community Sharing",
+      description: "Manage community resource sharing",
       icon: HandHelpingIcon,
-      href: "/community-requests",
+      href: "/community-sharing",
       color: "bg-purple-600",
     },
     {

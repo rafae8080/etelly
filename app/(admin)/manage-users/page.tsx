@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
-import { X, Pencil, Trash2, MoreVertical } from "lucide-react";
+import { X, Pencil, Trash2, UserCog, User } from "lucide-react";
 
 interface User {
   id: string;
@@ -248,7 +248,10 @@ export default function ManageUserPage() {
       </div>
 
       {/* Users Table */}
-      <div className="bg-white rounded-lg shadow overflow-hidden">
+      <div
+        className="bg-white rounded-lg shadow overflow-hidden"
+        style={{ minHeight: "320px" }}
+      >
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
             <tr>
@@ -294,7 +297,7 @@ export default function ManageUserPage() {
                       }
                       className="p-1 hover:bg-gray-100 rounded"
                     >
-                      <MoreVertical size={18} />
+                      <UserCog size={18} />
                     </button>
 
                     {openActionMenu === user.id && (
@@ -329,7 +332,7 @@ export default function ManageUserPage() {
 
       {/* Create/Edit User Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div className="fixed inset-0 backdrop-blur-sm bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg shadow-xl p-8 w-full max-w-md relative">
             <button
               onClick={() => setIsModalOpen(false)}

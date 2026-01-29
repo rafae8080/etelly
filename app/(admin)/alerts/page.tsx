@@ -1,63 +1,89 @@
-import AlertTile from "@/components/admin/AlertTile";
+"use client";
+
+import { useState } from "react";
+
+interface Alert {
+  id: number;
+  title: string;
+  description: string;
+  timestamp: string;
+}
+interface AlertTileProps {
+  title: string;
+  description: string;
+  timestamp: string;
+}
+
+function AlertTile({ title, description, timestamp }: AlertTileProps) {
+  return (
+    <div
+      className={`bg-white p-4 rounded-lg border-l-4 hover:border-red-500 border-gray-400 hover:shadow-md transition-all `}
+    >
+      {/* Title */}
+      <h3 className="font-semibold text-gray-900 mb-2">{title}</h3>
+
+      {/* Description */}
+      <p className="text-sm text-gray-600 mb-2">{description}</p>
+
+      {/* Timestamp */}
+      <p className="text-xs text-gray-400">{timestamp}</p>
+    </div>
+  );
+}
 
 export default function AlertsPage() {
-  const alerts = [
+  const alerts: Alert[] = [
     {
-      type: "Flood",
-      severity: "high",
-      description: "Heavy flooding reported. Water level rising rapidly.",
-      location: "Barangay Santo Niño, Zone 3",
-      timestamp: "2025-01-17 14:30:00",
+      id: 1,
+      title: "NDRRMC",
+      description:
+        "Orange Rainfall Warning sa Navotas. Nagbabanta ang malinding pag-ulan, pagigiha at paggulo ng lupa.",
+      timestamp: "2026-01-17 14:30:00",
     },
     {
-      type: "Fire",
-      severity: "high",
-      description: "Fire outbreak in Barangay San Isidro.",
-      location: "Barangay San Isidro",
-      timestamp: "2025-01-17 13:15:00",
+      id: 2,
+      title: "NDRRMC",
+      description:
+        "Orange Rainfall Warning sa Navotas. Nagbabanta ang malinding pag-ulan, pagigiha at paggulo ng lupa.",
+      timestamp: "2026-01-17 14:30:00",
     },
     {
-      type: "Earthquake",
-      severity: "medium",
-      description: "Fallen tree blocking main road near the public market.",
-      location: "Main Street, near Public Market",
-      timestamp: "2025-01-17 12:45:00",
+      id: 3,
+      title: "NDRRMC",
+      description:
+        "Orange Rainfall Warning sa Navotas. Nagbabanta ang malinding pag-ulan, pagigiha at paggulo ng lupa.",
+      timestamp: "2026-01-17 14:30:00",
     },
     {
-      type: "Seawall break",
-      severity: "low",
-      description: "Seawall break.",
-      location: "Zone 3, Sitio Maligaya",
-      timestamp: "2025-01-17 11:20:00",
+      id: 4,
+      title: "NDRRMC",
+      description:
+        "Orange Rainfall Warning sa Navotas. Nagbabanta ang malinding pag-ulan, pagigiha at paggulo ng lupa.",
+      timestamp: "2026-01-17 14:30:00",
     },
   ];
 
   return (
-    <div>
-      {/* Header */}
-      <div className="flex items-center justify-between">
-        <div className="flex-1 max-w-md">
+    <div className="p-8">
+      <div className="flex items-center justify-between mb-6">
+        <div>
           <h1 className="text-3xl font-bold text-gray-900">Alerts</h1>
-          <p className="text-gray-600 mt-2 mb-8">
-            Active disaster emergency alerts
-          </p>
         </div>
-        <div className="mb-8">
-          <div className="flex items-center gap-4">
-            <button className=" px-6 py-2 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-600 transition-colors flex items-center justify-center gap-2 whitespace-nowrap">
-              + Create Alert
-            </button>
-          </div>
-        </div>
+        <button className="px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-md hover:bg-red-700 transition-colors flex items-center gap-2">
+          <span>+</span>
+          <span>Create Alert</span>
+        </button>
       </div>
 
-      {/* Alert Tiles */}
-      <div>
-        <div className="space-y-3">
-          {alerts.map((alert) => (
-            <AlertTile key={alert.type} {...alert} />
-          ))}
-        </div>
+      <div className="space-y-4">
+        {alerts.map((alert) => (
+          <AlertTile
+            key={alert.id}
+            title={alert.title}
+            description={alert.description}
+            timestamp={alert.timestamp}
+          />
+        ))}
       </div>
     </div>
   );
