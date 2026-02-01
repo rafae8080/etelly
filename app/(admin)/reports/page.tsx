@@ -67,13 +67,13 @@ export default function ReportsPage() {
 
         <div className="bg-white p-6 rounded-xl ">
           <p className="text-sm text-gray-600 mb-1">High Priority</p>
-          <p className="text-3xl font-bold text-red-600">
+          <p className="text-3xl font-bold text-gray-900">
             {alerts.filter((a) => a.severity === "high").length}
           </p>
         </div>
         <div className="bg-white p-6 rounded-xl ">
           <p className="text-sm text-gray-600 mb-1">Sea Wall Reports</p>
-          <p className="text-3xl font-bold text-orange-600">
+          <p className="text-3xl font-bold text-gray-900">
             {alerts.filter((a) => a.type === "Seawall break").length}
           </p>
         </div>

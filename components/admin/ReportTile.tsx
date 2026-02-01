@@ -1,15 +1,6 @@
 "use client";
 
-import {
-  AlertTriangle,
-  Info,
-  AlertCircle,
-  X,
-  Waves,
-  Stone,
-  Flame,
-  BrickWall,
-} from "lucide-react";
+import { Info, X, Waves, Stone, Flame, BrickWall } from "lucide-react";
 import { useState } from "react";
 
 interface AlertTileProps {
@@ -126,7 +117,7 @@ export default function AlertTile({
       {/* Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 backdrop-blur-sm bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="bg-white rounded-xl max-w-xl w-full max-h-[90vh] overflow-y-auto">
             {/* Modal Header */}
             <div className="flex items-start justify-between p-6 border-b border-gray-200">
               <div className="flex items-start gap-4">
@@ -184,7 +175,7 @@ export default function AlertTile({
                 <p className="text-sm font-medium text-gray-700 mb-2">
                   Description
                 </p>
-                <p className="text-gray-900">{description}</p>
+                <p className="text-gray-900 text-xs">{description}</p>
               </div>
 
               {/* Location */}
@@ -192,7 +183,7 @@ export default function AlertTile({
                 <p className="text-sm font-medium text-gray-700 mb-2">
                   Location
                 </p>
-                <p className="text-gray-900"> {location}</p>
+                <p className="text-gray-900 text-xs"> {location}</p>
               </div>
 
               {/* Timestamp */}
@@ -200,7 +191,7 @@ export default function AlertTile({
                 <p className="text-sm font-medium text-gray-700 mb-2">
                   Reported At
                 </p>
-                <p className="text-gray-900"> {timestamp}</p>
+                <p className="text-gray-900 text-xs"> {timestamp}</p>
               </div>
 
               {/* Reported By */}
@@ -208,7 +199,7 @@ export default function AlertTile({
                 <p className="text-sm font-medium text-gray-700 mb-2">
                   Reported By
                 </p>
-                <p className="text-gray-900"> {reportedBy}</p>
+                <p className="text-gray-900 text-xs"> {reportedBy}</p>
               </div>
 
               {/* Rescue Status */}
@@ -230,13 +221,13 @@ export default function AlertTile({
             <div className="flex gap-3 p-6  bg-white-50">
               <button
                 onClick={handleReject}
-                className="flex-1 px-6 py-3 border border-red-500 opacity-85 text-red-600 font-semibold rounded-lg hover:bg-red-50 transition-colors"
+                className="flex-1 px-1 py-1 border border-red-500 opacity-85 text-red-600 font-semibold rounded-lg hover:bg-red-50 transition-colors text-sm"
               >
                 Reject Report
               </button>
               <button
                 onClick={handleApprove}
-                className="flex-1 px-6 py-3 border-2 border-green-600 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-colors"
+                className="flex-1 px-1 py-2 border-2 border-green-600 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-colors text-sm"
               >
                 Approve Report
               </button>
