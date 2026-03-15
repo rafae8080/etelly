@@ -1,4 +1,6 @@
+"use client";
 import AlertTile from "@/components/admin/ReportTile";
+import { useState } from "react";
 
 export default function ReportsPage() {
   const alerts = [
@@ -48,6 +50,7 @@ export default function ReportsPage() {
       hasImage: false,
     },
   ];
+  const [selectedType, setSelectedType] = useState("All");
 
   return (
     <div>
@@ -81,9 +84,26 @@ export default function ReportsPage() {
 
       {/* Alert Tiles */}
       <div>
-        <h2 className="text-xl font-semibold text-gray-900 mb-4">
-          Recent Alerts
-        </h2>
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h2 className="text-xl font-semibold text-gray-900 mb-4">
+              Recent Alerts
+            </h2>
+          </div>
+          <div className="w-full md:w-48">
+            <select
+              value={selectedType}
+              onChange={(e) => setSelectedType(e.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-transparent bg-white "
+            >
+              {["All", ...new Set(alerts.map((a) => a.type))].map((type) => (
+                <option key={type} value={type}>
+                  {type === "All" ? "All Categories" : type}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
         <div className="space-y-3">
           {alerts.map((alert) => (
             <AlertTile key={alert.id} {...alert} />

@@ -151,9 +151,9 @@ export default function LoginPage() {
         {/* Right Panel */}
         <div className="w-1/2 bg-linear-to-r from-red-600 via-red-700 to-red-800 text-white flex items-center justify-center flex-col p-10">
           <img
-            src="/images/logo.png"
+            src="/images/logtell1.png"
             alt="E-Telly Logo"
-            className="w-32 h-40 mb-4"
+            className="w-37 h-40 mb-4"
           />
           <h1 className="font-bold text-3xl mb-2">E-TELLY</h1>
           <p className="text-sm leading-5 tracking-wide text-center">
